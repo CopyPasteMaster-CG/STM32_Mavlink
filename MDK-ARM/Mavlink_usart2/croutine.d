@@ -1,0 +1,14 @@
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+mavlink_usart2\croutine.o: D:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
+mavlink_usart2\croutine.o: D:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+mavlink_usart2\croutine.o: ../Core/Inc/FreeRTOSConfig.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+mavlink_usart2\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
