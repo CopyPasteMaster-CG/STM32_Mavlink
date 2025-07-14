@@ -122,169 +122,17 @@ ChannelCtl channels[4] =
 
 uint8_t number=0;
 
-uint8_t state[4]={1,1,1,1};  
-
-
-//void process_channels()
-//{
-//	if (enable != 1)
-//	return;
-//	uint8_t i;
-//	uint8_t temp=return_switch();
-//		switch (temp)
-//			{
-//			case 1:
-//				if(state[0]==1&&state[1]==1)
-//				{
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//					vTaskDelay(CLOSE_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//					state[0]=state[1]=0;
-//				}
-//				break;
-//			case 2:
-//				if(state[2]==1&&state[3]==1)
-//				{
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//					vTaskDelay(CLOSE_INTERVAL);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//					state[2]=state[3]=0;
-//				}
-//				break;
-//			case 3:
-//				if(state[0]==1&&state[2]==1)
-//				{
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//					vTaskDelay(CLOSE_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//					state[0]=state[2]=0;
-//				}
-//				break;
-//			case 4:
-//				if(state[1]==1&&state[3]==1)
-//				{
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//					vTaskDelay(CLOSE_INTERVAL);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//					HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//					state[1]=state[3]=0;
-//				}
-//				break;
-//			case 5:
-//				if(state[0]==1)
-//				{
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//					vTaskDelay(CLOSE_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//					state[0]=0;
-//				}
-//				break;
-//			case 6:
-//				if(state[1]==1)
-//				{
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//					vTaskDelay(CLOSE_INTERVAL);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//					state[1]=0;
-//				}
-//				break;
-//			case 7:
-//				if(state[2]==1)
-//				{
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//					vTaskDelay(CLOSE_INTERVAL);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//					vTaskDelay(OPEN_INTERVAL);
-//					HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//					state[2]=0;
-//				}
-//				break;
-//			case 8:
-//				if(state[3]==1)
-//				{
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//				vTaskDelay(OPEN_INTERVAL);
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//				vTaskDelay(CLOSE_INTERVAL);
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//				vTaskDelay(OPEN_INTERVAL);
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//				state[3]=0;
-//				}
-//				break;
-//			case 9:
-//				if(state[0]==1&&state[1]==1&&state[2]==1&&state[3]==1)
-//				{
-//				HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//				HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//				HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//				vTaskDelay(OPEN_INTERVAL);
-//				HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//				HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//				HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//				vTaskDelay(CLOSE_INTERVAL);
-//				HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_SET);
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_SET);
-//				HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_SET);
-//				HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_SET);
-//				vTaskDelay(OPEN_INTERVAL);
-//				HAL_GPIO_WritePin(OUT2_GPIO_Port,OUT2_Pin,GPIO_PIN_RESET);
-//				HAL_GPIO_WritePin(OUT4_GPIO_Port,OUT4_Pin,GPIO_PIN_RESET);
-//				HAL_GPIO_WritePin(OUT1_GPIO_Port,OUT1_Pin,GPIO_PIN_RESET);
-//				HAL_GPIO_WritePin(OUT3_GPIO_Port,OUT3_Pin,GPIO_PIN_RESET);
-//				state[0]=state[1]=state[2]=state[3]=0;
-//				}
-//				break;
-//		}
-//}
-
 void process_channels()
 {
 	if (enable ==0)
-		return;
+	{
+		for(uint8_t i=0;i<4;i++)
+		{
+				HAL_GPIO_WritePin(channels[i].port, channels[i].pin, GPIO_PIN_RESET); 
+		}
+			return;
+	}
+	
 	
 	if (all !=number)
 	{
